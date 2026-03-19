@@ -1,0 +1,32 @@
+[
+  {
+    "title": "대전도",
+    "desc": "A comprehensive martial arts tournament management system designed for organizing brackets, scoring, and real-time results tracking.",
+    "tags": ["next js", "tailwindcss", "JS"],
+    "primaryTag": "next js",
+    "color": "#fef9ee",
+    "accent": "#f59e0b",
+    "initial": "대",
+    "featured": true
+  },
+  {
+    "title": "motiveet",
+    "desc": "Social motivation and habit tracking mobile application that helps users stay consistent through community challenges.",
+    "tags": ["next js", "tailwindcss", "TypeScript"],
+    "primaryTag": "next js",
+    "color": "#f0f4ff",
+    "accent": "#2563eb",
+    "initial": "M",
+    "featured": true
+  },
+  {
+    "title": "together",
+    "desc": "Platform for coordinating local community events, volunteer activities, and local meetups with integrated RSVP management.",
+    "tags": ["Python"],
+    "primaryTag": "Python",
+    "color": "#f0fdf4",
+    "accent": "#22c55e",
+    "initial": "T",
+    "featured": true
+  }
+]

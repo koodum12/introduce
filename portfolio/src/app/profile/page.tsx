@@ -75,7 +75,7 @@ export default function ProfilePage() {
           <div>
             <h1
               style={{
-                fontFamily: "'Noto Sans KR', sans-serif",
+                fontFamily: "'Inter', sans-serif",
                 fontSize: 'clamp(32px, 5vw, 52px)',
                 fontWeight: 900,
                 color: '#0f172a',
@@ -174,7 +174,7 @@ export default function ProfilePage() {
                 lineHeight: 1.85,
               }}
             >
-              다른 사람들보다 조금 늦게 프론트엔드 개발을 시작했지만, 누구보다 빠르게 배우고 깊게 이해하기 위해 노력해왔습니다. JavaScript와 TypeScript를 기반으로 React와 React Native를 활용해 사용자 친화적인 인터페이스를 구현합니다. 부족한 부분을 스스로 찾아 학습하며, 문제 해결 과정을 즐기는 편입니다. 단순히 작동하는 화면을 넘어, 더 나은 사용자 경험을 제공하는 개발자가 되는 것을 목표로 하고 있습니다.
+              {PROFILE.bio}
             </p>
           </div>
 

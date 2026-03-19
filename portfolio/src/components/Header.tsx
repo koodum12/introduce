@@ -3,11 +3,10 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { PROFILE } from '@/data/portfolio'
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/profile', label: 'Profile' },
+  { href: '/experience', label: 'Experience' },
   { href: '/projects', label: 'Projects' },
   { href: '/skills', label: 'Skills' },
 ]
@@ -45,7 +44,7 @@ export default function Header() {
         <Link href="/" style={{ textDecoration: 'none' }}>
           <span
             style={{
-              fontFamily: "'Syne', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontWeight: 800,
               fontSize: '20px',
               color: '#0f172a',

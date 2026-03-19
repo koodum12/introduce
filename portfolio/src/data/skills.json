@@ -1,0 +1,14 @@
+{
+  "frontend": [
+    { "name": "JavaScript", "percent": 30, "level": "EXPERT" },
+    { "name": "TypeScript", "percent": 92, "level": "EXPERT" },
+    { "name": "React",      "percent": 90, "level": "EXPERT" },
+    { "name": "Next JS",    "percent": 88, "level": "EXPERT" }
+  ],
+  "languages": [
+    { "name": "Python",     "percent": 85, "level": "EXPERT" },
+    { "name": "JavaScript", "percent": 95, "level": "EXPERT" },
+    { "name": "TypeScript", "percent": 92, "level": "EXPERT" }
+  ],
+  "tools": ["Git", "GitHub", "Figma", "Vercel", "Firebase", "Tailwind CSS"]
+}

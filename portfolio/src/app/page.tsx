@@ -20,7 +20,7 @@ export default function HomePage() {
         <p
           className="animate-fade-up delay-100"
           style={{
-            fontFamily: "'DM Mono', monospace",
+            fontFamily: "'Inter', sans-serif",
             fontSize: '13px',
             color: '#2563eb',
             letterSpacing: '0.08em',
@@ -33,7 +33,7 @@ export default function HomePage() {
         <h1
           className="animate-fade-up delay-200"
           style={{
-            fontFamily: "'Noto Sans KR', sans-serif",
+            fontFamily: "'Inter', sans-serif",
             fontSize: 'clamp(44px, 7vw, 80px)',
             fontWeight: 900,
             color: '#0f172a',
@@ -108,7 +108,7 @@ export default function HomePage() {
           >
             <h2
               style={{
-                fontFamily: "'Noto Sans KR', sans-serif",
+                fontFamily: "'Inter', sans-serif",
                 fontSize: '22px',
                 fontWeight: 700,
                 color: '#0f172a',
@@ -162,7 +162,7 @@ export default function HomePage() {
                 >
                   <span
                     style={{
-                      fontFamily: "'Syne', sans-serif",
+                      fontFamily: "'Inter', sans-serif",
                       fontSize: '28px',
                       fontWeight: 800,
                       color: '#cbd5e1',
@@ -214,7 +214,7 @@ export default function HomePage() {
         <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px' }}>
           <h2
             style={{
-              fontFamily: "'Noto Sans KR', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontSize: '22px',
               fontWeight: 700,
               color: '#0f172a',

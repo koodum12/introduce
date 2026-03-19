@@ -11,7 +11,7 @@ export default function ProjectsPage() {
         <div className="animate-fade-up" style={{ marginBottom: '48px' }}>
           <h1
             style={{
-              fontFamily: "'Noto Sans KR', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontSize: 'clamp(28px, 4vw, 40px)',
               fontWeight: 900,
               color: '#0f172a',
@@ -62,7 +62,7 @@ export default function ProjectsPage() {
               >
                 <span
                   style={{
-                    fontFamily: "'Syne', sans-serif",
+                    fontFamily: "'Inter', sans-serif",
                     fontSize: '56px',
                     fontWeight: 800,
                     color: proj.accent,

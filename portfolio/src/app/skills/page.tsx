@@ -41,7 +41,7 @@ function SkillBar({ skill, animate }: { skill: Skill; animate: boolean }) {
             fontSize: '14px',
             fontWeight: 700,
             color: '#2563eb',
-            fontFamily: "'DM Mono', monospace",
+            fontFamily: "'Inter', sans-serif",
           }}
         >
           {skill.percent}%
@@ -74,7 +74,7 @@ function SkillBar({ skill, animate }: { skill: Skill; animate: boolean }) {
           letterSpacing: '0.1em',
           color: '#94a3b8',
           textTransform: 'uppercase',
-          fontFamily: "'DM Mono', monospace",
+          fontFamily: "'Inter', sans-serif",
         }}
       >
         {skill.level}
@@ -147,7 +147,7 @@ export default function SkillsPage() {
         <div className="animate-fade-up" style={{ marginBottom: '48px' }}>
           <h1
             style={{
-              fontFamily: "'Noto Sans KR', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontSize: 'clamp(28px, 4vw, 40px)',
               fontWeight: 900,
               color: '#0f172a',
@@ -183,7 +183,7 @@ export default function SkillsPage() {
               color: '#94a3b8',
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
-              fontFamily: "'DM Mono', monospace",
+              fontFamily: "'Inter', sans-serif",
               marginBottom: '20px',
             }}
           >
