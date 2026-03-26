@@ -79,6 +79,15 @@ body {
   color: #475569;
 }
 
+/* Hide scrollbar while keeping scroll functionality */
+.scroll-hide {
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE/Edge */
+}
+.scroll-hide::-webkit-scrollbar {
+  display: none;               /* Chrome/Safari */
+}
+
 /* Card hover */
 .project-card {
   transition: transform 0.25s ease, box-shadow 0.25s ease;

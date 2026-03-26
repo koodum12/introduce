@@ -133,10 +133,13 @@ export default function HomePage() {
           </div>
 
           <div
+            className="scroll-hide"
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+              display: 'flex',
               gap: '24px',
+              overflowX: 'auto',
+              scrollSnapType: 'x mandatory',
+              WebkitOverflowScrolling: 'touch',
             }}
           >
             {featuredProjects.map((proj, i) => (
@@ -148,6 +151,8 @@ export default function HomePage() {
                   border: '1px solid #e2e8f0',
                   borderRadius: '14px',
                   overflow: 'hidden',
+                  flex: '0 0 300px',
+                  scrollSnapAlign: 'start',
                 }}
               >
                 {/* Thumbnail placeholder */}

@@ -1,7 +1,8 @@
 import { PROJECTS } from '@/data/portfolio'
+import Image from 'next/image'
 
 
-// 메인 프로젝트 페이지: 중앙 데이터 파일(src/data/portfolio.ts)에서 정보를 불러와 
+// 메인 프로젝트 페이지: 중앙 데이터 파일(src/data/portfolio.ts)에서 정보를 불러와
 // CSS Grid 형식으로 화면 크기에 맞게 여러 카드를 나열하는 역할을 합니다.
 export default function ProjectsPage() {
   return (
@@ -36,80 +37,127 @@ export default function ProjectsPage() {
           }}
         >
           {/* 가져온 PROJECTS 데이터를 기반으로 각각의 프로젝트 카드를 순회(Map)하며 생성합니다. */}
-          {PROJECTS.map((proj, i) => (
-            <div
-              key={i}
-              className="project-card animate-fade-up"
-              style={{
-                animationDelay: `${0.1 + i * 0.08}s`,
-                backgroundColor: '#fff',
-                borderRadius: '16px',
-                border: '1px solid #e2e8f0',
-                overflow: 'hidden',
-                cursor: 'pointer',
-              }}
-            >
-              {/* Thumbnail */}
+          {PROJECTS.map((proj, i) => {
+            const hasUrl = !!proj.url
+            const CardWrapper = ({ children }: { children: React.ReactNode }) =>
+              hasUrl ? (
+                <a
+                  href={proj.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: 'none', display: 'block' }}
+                >
+                  {children}
+                </a>
+              ) : (
+                <div>{children}</div>
+              )
+
+            return (
               <div
+                key={i}
+                className="project-card animate-fade-up"
                 style={{
-                  height: '180px',
-                  backgroundColor: proj.color,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  position: 'relative',
+                  animationDelay: `${0.1 + i * 0.08}s`,
+                  backgroundColor: '#fff',
+                  borderRadius: '16px',
+                  border: '1px solid #e2e8f0',
+                  overflow: 'hidden',
+                  cursor: hasUrl ? 'pointer' : 'default',
+                  opacity: hasUrl ? 1 : 0.85,
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: '56px',
-                    fontWeight: 800,
-                    color: proj.accent,
-                    opacity: 0.25,
-                    userSelect: 'none',
-                  }}
-                >
-                  {proj.initial}
-                </span>
-              </div>
+                <CardWrapper>
+                  {/* Thumbnail */}
+                  <div
+                    style={{
+                      height: '180px',
+                      backgroundColor: proj.color,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      position: 'relative',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    {proj.image ? (
+                      <Image
+                        src={proj.image}
+                        alt={proj.title}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    ) : (
+                      <span
+                        style={{
+                          fontFamily: "'Inter', sans-serif",
+                          fontSize: '56px',
+                          fontWeight: 800,
+                          color: proj.accent,
+                          opacity: 0.25,
+                          userSelect: 'none',
+                        }}
+                      >
+                        {proj.initial}
+                      </span>
+                    )}
+                    {!hasUrl && (
+                      <div
+                        style={{
+                          position: 'absolute',
+                          top: '10px',
+                          right: '10px',
+                          backgroundColor: 'rgba(0,0,0,0.35)',
+                          color: '#fff',
+                          fontSize: '11px',
+                          fontWeight: 600,
+                          padding: '3px 8px',
+                          borderRadius: '999px',
+                        }}
+                      >
+                        준비 중
+                      </div>
+                    )}
+                  </div>
 
-              {/* Content */}
-              <div style={{ padding: '22px' }}>
-                <h3
-                  style={{
-                    fontSize: '17px',
-                    fontWeight: 800,
-                    color: '#0f172a',
-                    marginBottom: '8px',
-                    letterSpacing: '-0.01em',
-                  }}
-                >
-                  {proj.title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: '13px',
-                    color: '#64748b',
-                    lineHeight: 1.65,
-                    marginBottom: '18px',
-                  }}
-                >
-                  {proj.desc}
-                </p>
-                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-                  {proj.tags.map((tag, ti) => (
-                    <span
-                      key={ti}
-                      className={ti === 0 ? 'tag tag-filled' : 'tag tag-outline'}
+                  {/* Content */}
+                  <div style={{ padding: '22px' }}>
+                    <h3
+                      style={{
+                        fontSize: '17px',
+                        fontWeight: 800,
+                        color: '#0f172a',
+                        marginBottom: '8px',
+                        letterSpacing: '-0.01em',
+                      }}
                     >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                      {proj.title}
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: '13px',
+                        color: '#64748b',
+                        lineHeight: 1.65,
+                        marginBottom: '18px',
+                      }}
+                    >
+                      {proj.desc}
+                    </p>
+                    <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                      {proj.tags.map((tag, ti) => (
+                        <span
+                          key={ti}
+                          className={ti === 0 ? 'tag tag-filled' : 'tag tag-outline'}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </CardWrapper>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </section>
     </div>

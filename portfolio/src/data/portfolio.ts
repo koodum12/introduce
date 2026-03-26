@@ -23,6 +23,8 @@ export interface Project {
   accent?: string
   initial: string
   featured?: boolean
+  image?: string
+  url?: string
 }
 
 export interface Experience {

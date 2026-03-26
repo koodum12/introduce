@@ -7,7 +7,9 @@
     "color": "#fef9ee",
     "accent": "#f59e0b",
     "initial": "대",
-    "featured": true
+    "featured": true,
+    "image": "",
+    "url": ""
   },
   {
     "title": "motiveet",
@@ -17,7 +19,9 @@
     "color": "#f0f4ff",
     "accent": "#2563eb",
     "initial": "M",
-    "featured": true
+    "featured": true,
+    "image": "",
+    "url": ""
   },
   {
     "title": "together",
@@ -27,6 +31,21 @@
     "color": "#f0fdf4",
     "accent": "#22c55e",
     "initial": "T",
-    "featured": true
+    "featured": true,
+    "image": "",
+    "url": ""
+  },
+  {
+    "title": "together",
+    "desc": "Platform for coordinating local community events, volunteer activities, and local meetups with integrated RSVP management.",
+    "tags": ["Python"],
+    "primaryTag": "Python",
+    "color": "#f0fdf4",
+    "accent": "#22c55e",
+    "initial": "T",
+    "featured": true,
+    "image": "",
+    "url": ""
   }
+
 ]
