@@ -1,203 +1,91 @@
-import Link from 'next/link'
+'use client'
 
+import Link from 'next/link'
 import { PROJECTS } from '@/data/portfolio'
 
-// 전체 프로젝트 중 'featured' 속성이 참(true)인 항목만 추려내어 메인 화면에 표시합니다.
 const featuredProjects = PROJECTS.filter(p => p.featured)
-
 
 export default function HomePage() {
   return (
-    <div style={{ backgroundColor: '#f1f5f9', minHeight: '100vh' }}>
-      {/* ── Hero 영역 (최상단 메인 배너): 간단한 인사말과 프로필/프로젝트로 이동하는 버튼 제공 ── */}
-      <section
-        style={{
-          maxWidth: '1100px',
-          margin: '0 auto',
-          padding: '100px 24px 80px',
-        }}
-      >
-        <p
-          className="animate-fade-up delay-100"
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: '13px',
-            color: '#2563eb',
-            letterSpacing: '0.08em',
-            marginBottom: '20px',
-            textTransform: 'uppercase',
-          }}
-        >
+    <div className="min-h-screen bg-slate-100">
+
+      {/* Hero */}
+      <section className="mx-auto max-w-[1100px] px-6 pt-[100px] pb-20">
+        
+        <p className="animate-fade-up delay-100 mb-5 text-[13px] uppercase tracking-[0.08em] text-blue-600">
           Frontend Developer
         </p>
-        <h1
-          className="animate-fade-up delay-200"
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 'clamp(44px, 7vw, 80px)',
-            fontWeight: 900,
-            color: '#0f172a',
-            lineHeight: 1.08,
-            letterSpacing: '-0.03em',
-            marginBottom: '28px',
-          }}
-        >
+
+        <h1 className="animate-fade-up delay-200 mb-7 text-[44px] font-black leading-[1.08] tracking-[-0.03em] text-slate-900 sm:text-[80px]">
           FE 개발자<br />
-          <span style={{ color: '#2563eb' }}>민채홍</span> 입니다
+          <span className="text-blue-600">민채홍</span> 입니다
         </h1>
-        <p
-          className="animate-fade-up delay-300"
-          style={{
-            fontSize: '17px',
-            color: '#64748b',
-            maxWidth: '480px',
-            lineHeight: 1.7,
-            marginBottom: '40px',
-          }}
-        >
+
+        <p className="animate-fade-up delay-300 mb-10 max-w-[480px] text-[17px] leading-[1.7] text-slate-500">
           JavaScript · TypeScript 기반으로 React와 React Native를 활용해
           사용자 친화적인 인터페이스를 구현합니다.
         </p>
-        <div
-          className="animate-fade-up delay-400"
-          style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}
-        >
+
+        <div className="animate-fade-up delay-400 flex flex-wrap gap-3">
           <Link
             href="/projects"
-            style={{
-              textDecoration: 'none',
-              padding: '12px 28px',
-              borderRadius: '10px',
-              backgroundColor: '#2563eb',
-              color: '#fff',
-              fontSize: '14px',
-              fontWeight: 700,
-              letterSpacing: '0.01em',
-            }}
+            className="rounded-[10px] bg-blue-600 px-7 py-3 text-sm font-bold tracking-[0.01em] text-white"
           >
             프로젝트 보기
           </Link>
+
           <Link
             href="/profile"
-            style={{
-              textDecoration: 'none',
-              padding: '12px 28px',
-              borderRadius: '10px',
-              backgroundColor: '#fff',
-              color: '#0f172a',
-              fontSize: '14px',
-              fontWeight: 700,
-              border: '1px solid #e2e8f0',
-            }}
+            className="rounded-[10px] border border-slate-200 bg-white px-7 py-3 text-sm font-bold text-slate-900"
           >
             프로필
           </Link>
         </div>
       </section>
 
-      {/* ── Projects Preview 영역: data/portfolio.ts에서 설정한 featured 프로젝트 목록을 카드 형태로 렌더링 ── */}
-      <section style={{ backgroundColor: '#fff', padding: '64px 0' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px' }}>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              marginBottom: '36px',
-            }}
-          >
-            <h2
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: '22px',
-                fontWeight: 700,
-                color: '#0f172a',
-              }}
-            >
+      {/* Projects */}
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-[1100px] px-6">
+          
+          <div className="mb-9 flex items-center justify-between">
+            <h2 className="text-[22px] font-bold text-slate-900">
               프로젝트
             </h2>
+
             <Link
               href="/projects"
-              style={{
-                textDecoration: 'none',
-                fontSize: '14px',
-                fontWeight: 600,
-                color: '#2563eb',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '4px',
-              }}
+              className="flex items-center gap-1 text-sm font-semibold text-blue-600"
             >
               더보기 →
             </Link>
           </div>
 
-          <div
-            className="scroll-hide"
-            style={{
-              display: 'flex',
-              gap: '24px',
-              overflowX: 'auto',
-              scrollSnapType: 'x mandatory',
-              WebkitOverflowScrolling: 'touch',
-            }}
-          >
+          <div className="scroll-hide flex gap-6 overflow-x-auto snap-x snap-mandatory">
             {featuredProjects.map((proj, i) => (
               <div
                 key={i}
-                className="project-card"
-                style={{
-                  backgroundColor: '#fff',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: '14px',
-                  overflow: 'hidden',
-                  flex: '0 0 300px',
-                  scrollSnapAlign: 'start',
-                }}
+                className="project-card w-[300px] shrink-0 snap-start overflow-hidden rounded-[14px] border border-slate-200 bg-white"
               >
-                {/* Thumbnail placeholder */}
+                {/* Thumbnail */}
                 <div
-                  style={{
-                    height: '180px',
-                    backgroundColor: proj.color,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
+                  className="flex h-[180px] items-center justify-center"
+                  style={{ backgroundColor: proj.color }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: '28px',
-                      fontWeight: 800,
-                      color: '#cbd5e1',
-                    }}
-                  >
+                  <span className="text-[28px] font-extrabold text-slate-300">
                     {proj.title.charAt(0).toUpperCase()}
                   </span>
                 </div>
-                <div style={{ padding: '20px' }}>
-                  <h3
-                    style={{
-                      fontSize: '16px',
-                      fontWeight: 700,
-                      color: '#0f172a',
-                      marginBottom: '8px',
-                    }}
-                  >
+
+                <div className="p-5">
+                  <h3 className="mb-2 text-base font-bold text-slate-900">
                     {proj.title}
                   </h3>
-                  <p
-                    style={{
-                      fontSize: '13px',
-                      color: '#64748b',
-                      lineHeight: 1.6,
-                      marginBottom: '16px',
-                    }}
-                  >
+
+                  <p className="mb-4 text-[13px] leading-[1.6] text-slate-500">
                     {proj.desc}
                   </p>
-                  <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+
+                  <div className="flex flex-wrap gap-1.5">
                     {proj.tags.map((tag, ti) => (
                       <span
                         key={ti}
@@ -211,57 +99,46 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* ── Skills Teaser 영역: 주요 사용 기술 스택을 뱃지(Badge) 형태로 간단히 보여주고 상세 페이지로 유도 ── */}
-      <section style={{ padding: '80px 0 100px' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px' }}>
-          <h2
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: '22px',
-              fontWeight: 700,
-              color: '#0f172a',
-              marginBottom: '40px',
-            }}
-          >
+      {/* Skills */}
+      <section className="py-20 pb-[100px]">
+        <div className="mx-auto max-w-[1100px] px-6">
+
+          <h2 className="mb-10 text-[22px] font-bold text-slate-900">
             사용 기술
           </h2>
-          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-            {['JavaScript', 'TypeScript', 'React', 'Next.js', 'Python', 'Firebase', 'Tailwind CSS'].map(
-              (tech, i) => (
-                <span
-                  key={i}
-                  style={{
-                    padding: '8px 18px',
-                    borderRadius: '100px',
-                    fontSize: '13px',
-                    fontWeight: 600,
-                    backgroundColor: '#fff',
-                    color: '#0f172a',
-                    border: '1px solid #e2e8f0',
-                    letterSpacing: '0.01em',
-                  }}
-                >
-                  {tech}
-                </span>
-              )
-            )}
+
+          <div className="flex flex-wrap gap-3">
+            {[
+              'JavaScript',
+              'TypeScript',
+              'React',
+              'Next.js',
+              'Python',
+              'Firebase',
+              'Tailwind CSS',
+            ].map((tech, i) => (
+              <span
+                key={i}
+                className="rounded-full border border-slate-200 bg-white px-[18px] py-2 text-[13px] font-semibold tracking-[0.01em] text-slate-900"
+              >
+                {tech}
+              </span>
+            ))}
           </div>
-          <div style={{ marginTop: '32px' }}>
+
+          <div className="mt-8">
             <Link
               href="/skills"
-              style={{
-                textDecoration: 'none',
-                fontSize: '14px',
-                fontWeight: 600,
-                color: '#2563eb',
-              }}
+              className="text-sm font-semibold text-blue-600"
             >
               기술 상세 보기 →
             </Link>
           </div>
+
         </div>
       </section>
     </div>

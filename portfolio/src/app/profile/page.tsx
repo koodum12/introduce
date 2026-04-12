@@ -1,11 +1,8 @@
 import { PROFILE, SKILLS } from '@/data/portfolio'
 
-// 프로필 페이지 컴포넌트: 기본 신상 정보와 연락처, 스킬 리스트를 보여주는 화면입니다.
 export default function ProfilePage() {
-  // src/data/portfolio.ts (SKILLS.frontend) 의 객체에서 기술 이름(name)만 뽑아내어 배열로 만듭니다.
   const skills = SKILLS.frontend.map(s => s.name)
-  
-  // 연락처 정보를 배열로 정의해두고, 추후 하단의 map 함수를 통해 개별 리스트 아이템으로 반복 렌더링합니다.
+
   const contacts = [
     {
       icon: (
@@ -36,32 +33,15 @@ export default function ProfilePage() {
     },
   ]
 
-
   return (
-    <div style={{ backgroundColor: '#f1f5f9', minHeight: '100vh' }}>
-      {/* ── Profile Card 영역: 좌측에 아바타(사진/도형), 우측에 간단한 요약 정보를 표시하는 구역 ── */}
-      <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '64px 24px 48px' }}>
-        <div
-          className="animate-fade-up"
-          style={{ display: 'flex', alignItems: 'center', gap: '48px', flexWrap: 'wrap' }}
-        >
+    <div className="min-h-screen bg-slate-100">
+
+      {/* Profile */}
+      <section className="mx-auto max-w-[1100px] px-6 pt-16 pb-12">
+        <div className="animate-fade-up flex flex-wrap items-center gap-12">
+
           {/* Avatar */}
-          <div
-            style={{
-              width: '160px',
-              height: '160px',
-              borderRadius: '50%',
-              border: '2px solid #cbd5e1',
-              backgroundColor: '#e2e8f0',
-              flexShrink: 0,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              overflow: 'hidden',
-              position: 'relative',
-            }}
-          >
-            {/* Geometric avatar placeholder matching design */}
+          <div className="relative flex h-[160px] w-[160px] flex-shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-slate-300 bg-slate-200">
             <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
               <rect x="10" y="10" width="40" height="40" fill="#22c55e" />
               <rect x="70" y="10" width="40" height="40" fill="#22c55e" />
@@ -73,63 +53,24 @@ export default function ProfilePage() {
 
           {/* Info */}
           <div>
-            <h1
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 'clamp(32px, 5vw, 52px)',
-                fontWeight: 900,
-                color: '#0f172a',
-                letterSpacing: '-0.02em',
-                marginBottom: '6px',
-              }}
-            >
+            <h1 className="mb-1 text-[32px] font-black tracking-[-0.02em] text-slate-900 sm:text-[52px]">
               민채홍
             </h1>
-            <p
-              style={{
-                fontSize: '18px',
-                fontWeight: 600,
-                color: '#2563eb',
-                marginBottom: '10px',
-              }}
-            >
+
+            <p className="mb-2.5 text-lg font-semibold text-blue-600">
               FE developer
             </p>
-            <p
-              style={{
-                fontSize: '14px',
-                color: '#22c55e',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                marginBottom: '20px',
-              }}
-            >
-              <span
-                style={{
-                  width: '8px',
-                  height: '8px',
-                  borderRadius: '50%',
-                  backgroundColor: '#22c55e',
-                  display: 'inline-block',
-                }}
-              />
+
+            <p className="mb-5 flex items-center gap-1.5 text-sm text-green-500">
+              <span className="inline-block h-2 w-2 rounded-full bg-green-500" />
               Currently building accessible design systems
             </p>
-            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+
+            <div className="flex flex-wrap gap-2">
               {skills.map((s, i) => (
                 <span
                   key={i}
-                  style={{
-                    padding: '5px 14px',
-                    borderRadius: '100px',
-                    fontSize: '12px',
-                    fontWeight: 700,
-                    letterSpacing: '0.04em',
-                    backgroundColor: '#eff6ff',
-                    color: '#2563eb',
-                    border: '1px solid #bfdbfe',
-                  }}
+                  className="rounded-full border border-blue-200 bg-blue-50 px-[14px] py-[5px] text-xs font-bold tracking-[0.04em] text-blue-600"
                 >
                   {s}
                 </span>
@@ -139,115 +80,58 @@ export default function ProfilePage() {
         </div>
       </section>
 
-      <div style={{ borderTop: '1px solid #e2e8f0' }} />
+      <div className="border-t border-slate-200" />
 
-      {/* ── Bio (자기소개) 및 Contact (연락처) 영역: 화면이 줄어들면(768px 이하) 1열로, 넓을 땐 2열 분할로 렌더링됩니다 ── */}
-      <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '48px 24px 80px' }}>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 340px',
-            gap: '48px',
-            alignItems: 'start',
-          }}
-          className="profile-grid"
-        >
+      {/* Bio + Contact */}
+      <section className="mx-auto max-w-[1100px] px-6 py-12 pb-20">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-[1fr_340px]">
+
           {/* Bio */}
           <div className="animate-fade-up delay-200">
-            <h2
-              style={{
-                fontSize: '20px',
-                fontWeight: 700,
-                color: '#0f172a',
-                marginBottom: '20px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-              }}
-            >
-              <span style={{ color: '#2563eb' }}>👤</span> 자기소개
+            <h2 className="mb-5 flex items-center gap-2 text-xl font-bold text-slate-900">
+              <span className="text-blue-600">👤</span> 자기소개
             </h2>
-            <p
-              style={{
-                fontSize: '15px',
-                color: '#475569',
-                lineHeight: 1.85,
-              }}
-            >
+
+            <p className="text-[15px] leading-[1.85] text-slate-600">
               {PROFILE.bio}
             </p>
           </div>
 
-          {/* Contact card */}
-          <div
-            className="animate-fade-up delay-300"
-            style={{
-              backgroundColor: '#fff',
-              borderRadius: '16px',
-              border: '1px solid #e2e8f0',
-              padding: '28px',
-            }}
-          >
-            <h3
-              style={{
-                fontSize: '16px',
-                fontWeight: 700,
-                color: '#0f172a',
-                marginBottom: '20px',
-              }}
-            >
+          {/* Contact */}
+          <div className="animate-fade-up delay-300 rounded-2xl border border-slate-200 bg-white p-7">
+            <h3 className="mb-5 text-base font-bold text-slate-900">
               연락처
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+
+            <div className="flex flex-col">
               {contacts.map((c, i) => (
                 <div key={i}>
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '14px',
-                      padding: '14px 0',
-                    }}
-                  >
-                    <span
-                      style={{
-                        width: '36px',
-                        height: '36px',
-                        borderRadius: '50%',
-                        backgroundColor: '#0f172a',
-                        color: '#fff',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
-                      }}
-                    >
+                  <div className="flex items-center gap-3.5 py-3.5">
+                    
+                    <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-slate-900 text-white">
                       {c.icon}
                     </span>
+
                     <div>
-                      <p style={{ fontSize: '13px', fontWeight: 700, color: '#0f172a', marginBottom: '2px' }}>
+                      <p className="mb-0.5 text-[13px] font-bold text-slate-900">
                         {c.label}
                       </p>
-                      <p style={{ fontSize: '12px', color: '#94a3b8' }}>{c.value}</p>
+                      <p className="text-xs text-slate-400">
+                        {c.value}
+                      </p>
                     </div>
                   </div>
+
                   {i < contacts.length - 1 && (
-                    <div style={{ borderTop: '1px solid #f1f5f9' }} />
+                    <div className="border-t border-slate-100" />
                   )}
                 </div>
               ))}
             </div>
           </div>
+
         </div>
       </section>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .profile-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </div>
   )
 }
